@@ -1,0 +1,378 @@
+@import '../baseStyles/styles';
+
+.nav {
+  flex: 1;
+  position: relative;
+  max-width: 38rem;
+  margin-left: auto;
+  height: 80%;
+  right: 0;
+  padding-right: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  @media screen and (max-width: 900px){
+    max-width: 15rem;
+  }
+
+  @media screen and (min-width: 1800px){
+    max-width: 45rem;
+  }
+
+  .navWrapper {
+    .flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+
+    .navItem {
+      flex: 0;
+      text-align: center;
+      display: inline-block;
+      position: relative;
+      height: 2.5em;
+      width: 8em;
+      margin: 0 .2em;
+      line-height: 2rem;
+      font-size: .78125em;
+      font-size: .88rem;
+      letter-spacing: .125em;
+      color: white;
+      cursor: pointer;
+      z-index: 20;
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      align-items: baseline;
+
+      // @media screen and (max-width: 1100px){
+      //   max-width: 5rem;
+      // }
+      @media screen and (min-width: 2000px){
+        margin: 0 1.5rem;
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        color: inherit;
+        white-space: nowrap;
+        box-sizing: border-box;
+
+
+        &:after {
+          content: '';
+          display: block;
+          width: 0%;
+          height: 4%;
+          bottom: 20%;
+          margin: auto;
+          border-radius: 10%;
+          background: @action-orange;
+        }
+
+        &.navActive {
+          color: @action-orange;
+          transition: .3s;
+
+
+
+          &:after {
+            content: '';
+            display: block;
+            width: 80%;
+            height: 10%;
+            bottom: 20%;
+            margin: auto;
+            border-radius: 8%;
+            transition: .3s;
+            background: @action-orange;
+          }
+        }
+      }
+
+      .dark, .titleDark {
+        fill: @grey-font;
+        color: @grey-font;
+        transition: 1s;
+
+        &:hover {
+          color: rgba(255,66,0,.6);
+          transition-delay: .1s;
+        }
+      }
+
+      &:hover {
+        color: rgba(255,66,0,.6);
+        transition-delay: .1s;
+      }
+
+
+
+
+    }
+    
+  }
+
+
+
+
+  .quoteButton {
+    flex: 0;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    height: 2.5em;
+    width: 8em;
+    margin: 0 .2em;
+    line-height: 2.5rem;
+    font-size: .88rem;
+    letter-spacing: .125em;
+    cursor: pointer;
+    z-index: 20;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+
+
+    margin-right: 1rem;
+    margin-left: 1rem;
+    min-width: 10rem;
+    height: 2.5rem;
+
+    a {
+      .flex;
+      width: 100%;
+      color: white;
+      box-sizing: border-box;
+      height: 100%;
+      text-align: center;
+      text-decoration: none;
+      white-space:normal;
+      border-radius: 1px;
+      box-shadow: inset 0 0 0 1px white;
+      background: rgba(200,200,200,.23);
+      transition: background .2s ease, box-shadow 0s ease;
+    }
+
+    .navActive {
+      color: @action-orange;
+      background: none;
+      box-shadow: inset 0 0 0 1px @action-orange;
+    }
+
+    .dark {
+      color: @grey-font;
+      box-shadow: inset 0 0 0 1px @grey-font;
+      transition: .4s;
+    }
+
+    .hovered {
+      color: @action-blue;
+      background: none;
+      box-shadow: inset 0 0 0 2px transparent;
+      transition: border .6s, color .5s, background .5s, font-size .1s;
+
+      &:after,&:before{
+        content: '';
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        border: 2px transparent solid;
+        box-sizing: border-box;
+      }
+
+      &:before {
+        animation: before-top .16s ease forwards, before-right .16s ease .16s forwards;
+      }
+      &:after {
+        animation: after-left .16s ease forwards, after-bottom .16s ease .16s forwards;
+      }
+    }
+  }
+
+  .toggleBox {
+    width: 4rem;
+    height: 4rem;
+    // margin: 0 1.3rem;
+    position: relative;
+    cursor: pointer;
+    .flex;
+  }
+
+  .toggleBar {
+    width: 2.2rem;
+    height: .27rem;
+    background-color: rgba(255,255,255,1);
+    border-radius: .7rem;
+    transition: transform .3s;
+  }
+
+
+  .mobileToggle {
+    .toggleBar;
+    position: relative;
+    transition: transform .2s, background-color .15s .05s;
+
+
+    &.dark {
+      background: @grey-font;
+      &:before {
+        background: @grey-font;
+      }
+      &:after {
+        background: @grey-font;
+      }
+    }
+
+    &:before {
+      .toggleBar;
+      content: '';
+      position: absolute;
+      bottom: .7rem;
+      transition: .32s;
+
+    }
+    &:after {
+      .toggleBar;
+      content: '';
+      position: absolute;
+      top: .7rem;
+      transition: .1s;
+    }
+
+    &.open {
+      transform: rotate(90deg);
+      background: rgba(255,255,255,0);
+      width: 3rem;
+      height: .1rem;
+      transition: transform .3s, background .1s;
+
+      &:before {
+        top: 0;
+        transform: rotate(-45deg) translate(1rem,.34rem) scale(.7);
+        transition: .32s;
+
+
+      }
+      &:after {
+        top: 0;
+        transform: rotate(45deg) translate(1rem,-.34rem) scale(.7);
+        transition: .32s;
+      }
+    }
+  }
+
+
+
+  .mobileDrawer {
+    position: absolute;
+    z-index: -2;
+    width: 100vw;
+    height: 22rem;
+    top: -2rem;
+    right: 0;
+    background: rgba(1,1,10,1);
+    background: @hero-background;
+
+    .block {
+      width: 100%;
+      height: 7rem;
+      display: block;
+    }
+
+    .mobileDivider {
+      max-height: 0;
+      width: 35%;
+      margin: 1rem auto;
+      border: 1px solid white;
+    
+    }
+
+    .mobileNavItem {
+      text-align: right;
+      // text-align: center;
+      position: relative;
+      font-size: 1.5rem;
+      padding: .5rem 0rem;
+      // padding-right: 2.7rem;
+      // margin: 0 auto;
+      margin-right: 2.2rem;
+      margin-left: auto;
+      .flex;
+      transition: .5s;
+
+      &:hover {
+        color: white;
+        transition: .3s;
+      }
+
+      .navActive {
+        font-size: 1.7rem;
+        color: @light-grey-font;
+
+        &:after {
+          width: 0;
+          height: 0;
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// KeyFrames
+@keyframes before-top {
+  40% {width: 10%;}
+  90% {width: 98%; border-top-color: @action-blue}
+  100% {width: 100%;border-top-color: @action-blue;}
+}
+@keyframes before-right {
+  40% {height: 10%;}
+  90% {height: 98%; border-right-color: @action-blue}
+  100% {height: 100%; border-right-color: @action-blue;}
+}
+
+@keyframes after-left {
+  40% {height: 10%;}
+  90% {height: 98%; border-left-color: @action-blue}
+  100% {height: 100%;border-left-color: @action-blue;}
+}
+@keyframes after-bottom {
+  40% {width: 10%;}
+  90% {width: 98%; border-bottom-color: @action-blue}
+  100% {width: 100%;border-bottom-color: @action-blue;}
+}
+
+
+
+
+// Mobile Drawer Transitions
+.enter {
+  opacity: 0;
+  transform: translate(0,-100px);
+  &.enterActive {
+    opacity: 1;
+    transform: translate(0,0);
+    transition: opacity .2s ease .09s, transform .4s ease;
+    -webkit-transform: translateZ(0) ;
+    -webkit-transform:translate3d(0,0,0);
+  }
+}
+
+.leave {
+  opacity: 1;
+  transform: translate(0,0);
+  &.leaveActive{
+    opacity: 0;
+    transform: translate(0,-100px);
+    transition: opacity .2s .1s, transform .4s;
+  }
+}

@@ -1,0 +1,39 @@
+@import '../baseStyles/styles';
+
+
+.navbarContainer {
+  .fullRow;
+  position: absolute;
+  z-index: 10;
+
+  .navbar {
+    position: fixed;
+    width: 100%;
+    height: 4.375rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;
+
+    @media screen and (min-width: 2000px){
+      height: 120px;
+    }
+
+    .logoNavWrapper {
+      .flex;
+      // max-width: 50%;
+      justify-content: space-around;
+      align-self: flex-start;
+    }
+
+
+    .logo {
+      width: 100%;
+
+      svg {
+        path {
+          fill: green;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,252 @@
+@import './upsell.less';
+
+// Variables
+
+  //Fonts
+  @grey-font: rgba(84,94,103,1);
+  @light-grey-font: rgba(207, 208, 211, 1);
+
+  // Button & Action Colors
+  @action-blue: rgba(100,185,250,1);
+  @action-orange: rgba(255,66,0,1);
+  @action-green: rgba(62,206,142,1);
+  @action-blue-too: rgba(0,213,255,1);
+
+  @payment-green: rgba(62, 207, 142, 1);
+  @light-action-green: #8cffb8;
+  @kartwheel-gold: rgba(253, 191, 45, 1);
+  @light-kartwheel-gold: #ffd34f;
+
+  // Background Colors
+  @hero-background: rgba(54,106,145,1);
+
+  @overlayGrey : rgba(20,20,20,.5);
+  @overlayLight: rgba(30,30,30,.4);
+
+  // Font Families
+  @font-face {
+    font-family: phosphate;
+    src: url("https://assets.handstandwith.us/web/fonts/PhosphateSolid.ttf");
+  }
+  @font-face {
+    font-family: zamenhof;
+    src: url("https://assets.handstandwith.us/web/fonts/ZamenhofSolid.ttf");
+  }
+
+// @@@@@****************@@@@@@@@@@@*****************@@@@@@@@@ //
+
+
+// Shared Classes
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,.32) 20%,rgba(0,0,0,.8));
+}
+
+
+.fullRow {
+  width: 100%;
+  position: relative;
+}
+
+.sectionContainer {
+  background: linear-gradient(rgba(255,255,255,1),rgba(246,248,252,1));
+}
+
+.button {
+  position: relative;
+  border-radius: 2px;
+  display: block;
+  width: 18.3125rem;
+  height: 3.75em;
+  background: @action-orange;
+  font-size: 1.06em;
+  letter-spacing: 2px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 1px 2px 2px rgba(0,0,0,.42);
+  padding: 0;
+
+  &:hover{
+    box-shadow: 0px 1px 1px rgba(0,0,0,.98);
+    transform: scale(.99);
+  }
+
+  &:active{
+    transform: scale(.95);
+  }
+
+  a {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    line-height: 100%;
+    .flex;
+  }
+
+  &.active {
+    outline: none;
+  }
+  p {
+    margin: auto;
+  }
+}
+
+
+
+.baseSplash {
+  .fullRow;
+  height: 90vh;
+  min-height: 50rem;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+
+  .title {
+    width: 70%;
+    position: relative;
+    font-size: 4rem;
+    color: white;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  .button {
+    width: 12.1875rem;
+    height: 3.375rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+
+.midline {
+  &:after{
+    content: '';
+    width: 100%;
+    height: 1px;
+    margin: auto;
+    border: 1px red solid;
+    box-sizing: border-box;
+    position: absolute;
+  }
+}
+
+.kartWheelButton {
+  .flex;
+  letter-spacing: 2px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 500px;
+  text-align: center;
+  position: relative;
+
+  min-height: 40px;
+  max-height: 40px;
+  height: 40px;
+  // width: auto;
+  // height: auto;
+
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+
+  @media screen and (min-width: 1500px) {
+    height: 80px;
+    max-width: 200px;
+    min-width: 200px;
+  }
+  @media screen and (max-width: 600px) {
+    width: 35vw;
+    min-width: 100px;
+    max-width: 100%;
+    p {
+      text-align: center;
+      font-size: 1rem;
+    }
+    // max-width: 100px;
+  }
+  // width: auto;
+  // max-width: 12rem;
+  font-size: .7rem;
+  opacity: 1;
+  font-weight: 400;
+  transition: .5s;
+  a {
+    .flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    // overflow: hidden;
+  }
+
+  // &:after {
+  // content: '';
+  // position: absolute;
+  // bottom: .5rem;
+  // display: block;
+  // margin: auto;
+  // height: 2px;
+  // width: 0px;
+  // background: transparent;
+  // transition: width .5s ease, background-color .5s ease;    
+  // }
+  &:hover {
+    // &:after {
+    //   width: 50%;
+    //   background: white;
+    // }
+    transform: scale(1.05);
+    background-color: @light-kartwheel-gold;
+    font-weight: 800;
+    transition: .5s ease;
+  }
+  &:active {
+    // color: @action-green;
+    // transition: color .2s;
+  }
+
+}
+
+.checkoutMobile {
+  @media screen and (max-width: 800px) {
+    .fullRow;
+    align-self: center;
+    width: 95vw;
+    // padding: 0;
+    min-width: 95vw;
+    max-width: 95vw;
+    padding: 1rem;
+
+    // min-height: 30vh;
+    height: auto;
+
+  }
+}
